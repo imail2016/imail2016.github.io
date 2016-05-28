@@ -5,56 +5,56 @@
 </head>
 <body>
 	<p>
-		screen:
-			1、介绍:Screen是一个可以在多个进程之间多路复用一个物理终端的窗口管理器
-			2、命令:
-			创建新的screen会话:
-			1) screen  
-			2) screen + command 或者需要执行的程序
-			在已有screen会话中创建新的窗口:
-			1) 在当前screen窗口中键入C-a c，即Ctrl键+a键，之后再按下c键，screen 在该会话内生成一个新的窗口并切换到该窗口
-			其他功能:
-			可以不中断screen窗口中程序的运行而暂时断开（detach）screen会话，并在随后时间重新连接（attach）该会话，重新控制各窗口中运行的程序,
-			操作方法:
-			1)screen窗口键入C-a d  
-			2)后续想继续操作,screen -ls 查找screen会话
-			3)重新连接会话:screen -r <screen_pid>
-			4)清除dead会话：screen -wipe
+		<p>screen:</p>
+		<p>	1、介绍:Screen是一个可以在多个进程之间多路复用一个物理终端的窗口管理器</p>
+		<p>	2、命令:</p>
+		<p>	创建新的screen会话:</p>
+		<p>	1) screen  </p>
+		<p>	2) screen + command 或者需要执行的程序</p>
+		<p>	在已有screen会话中创建新的窗口:</p>
+		<p>	1) 在当前screen窗口中键入C-a c，即Ctrl键+a键，之后再按下c键，screen 在该会话内生成一个新的窗口并切换到该窗口</p>
+		<p>	其他功能:</p>
+		<p>	可以不中断screen窗口中程序的运行而暂时断开（detach）screen会话，并在随后时间重新连接（attach）该会话，重新控制各窗口中运行的程序,</p>
+		<p>	操作方法:</p>
+		<p>	1)screen窗口键入C-a d  </p>
+		<p>	2)后续想继续操作,screen -ls 查找screen会话</p>
+		<p>	3)重新连接会话:screen -r <screen_pid></p>
+		<p>	4)清除dead会话：screen -wipe</p>
 
 
-			C-a:命令字符
-			使用C-a命令向screen窗口管理器发出命令,默认screen接收以C-a开始的命令
-			C-a ? 显示所有键绑定信息
-			C-a w 显示所有窗口列表
-			C-a C-a  切换到之前显示的窗口
-			C-a c 创建一个新的运行shell的窗口并切换到该窗口
-			C-a n 切换到下一个窗口
-			C-a p 切换到前一个窗口(与C-a n相对)
-			C-a 0..9  切换到窗口0..9
-			C-a a 发送 C-a到当前窗口
-			C-a d 暂时断开screen会话
-			C-a k 杀掉当前窗口
-			C-a [ 进入拷贝/回滚模式
-			自定义命令字符和转义字符:
-			screen -exy x为命令字符 y为转义命令字符的字符
-			eg:screen -e^tt 指定了命令字符为C-t，转义C-t的字符为t
-			-d -m:启动一个开始就处于断开模式的会话,可以用来调试后台程序
-			启动一个初始状态断开的screen会话:
-			screen -dmS mygdb gdb execlp_test
-			连接会话:
-			screen -r mygdb
-			管理远程会话；
-			保存打开的ssh窗口及保存每天工作的内容:
-			1) 打开一个ssh窗口,并创建需要的窗口 screen -S name 给SSH窗口命名
-			2) 退出的时候C-a d "保存"所有的工作
-			3) 下次登录时 screen -r <screen_pid> 打开即可
-			常用screen参数:
-			screen -S yourname -> 新建一个叫yourname的session
-			screen -ls -> 列出当前所有的session
-			screen -r yourname -> 回到yourname这个session
-			screen -d yourname -> 远程detach某个session
-			screen -d -r yourname -> 结束当前session并回到yourname这个session
-			screen -D -r yourname-> 结束当前的session,并logout,再链接yourname这个session
+		<p>	C-a:命令字符</p>
+		<p>	使用C-a命令向screen窗口管理器发出命令,默认screen接收以C-a开始的命令</p>
+		<p>	C-a ? 显示所有键绑定信息</p>
+		<p>	C-a w 显示所有窗口列表</p>
+		<p>	C-a C-a  切换到之前显示的窗口</p>
+		<p>	C-a c 创建一个新的运行shell的窗口并切换到该窗口</p>
+		<p>	C-a n 切换到下一个窗口</p>
+		<p>	C-a p 切换到前一个窗口(与C-a n相对)</p>
+		<p>	C-a 0..9  切换到窗口0..9</p>
+		<p>	C-a a 发送 C-a到当前窗口</p>
+		<p>	C-a d 暂时断开screen会话</p>
+		<p>	C-a k 杀掉当前窗口</p>
+		<p>	C-a [ 进入拷贝/回滚模式</p>
+		<p>	自定义命令字符和转义字符:</p>
+		<p>	screen -exy x为命令字符 y为转义命令字符的字符</p>
+		<p>	eg:screen -e^tt 指定了命令字符为C-t，转义C-t的字符为t</p>
+		<p>	-d -m:启动一个开始就处于断开模式的会话,可以用来调试后台程序</p>
+		<p>	启动一个初始状态断开的screen会话:</p>
+		<p>	screen -dmS mygdb gdb execlp_test</p>
+		<p>	连接会话:</p>
+		<p>	screen -r mygdb</p>
+		<p>	管理远程会话；</p>
+		<p>	保存打开的ssh窗口及保存每天工作的内容:</p>
+		<p>	1) 打开一个ssh窗口,并创建需要的窗口 screen -S name 给SSH窗口命名</p>
+		<p>	2) 退出的时候C-a d "保存"所有的工作</p>
+		<p>	3) 下次登录时 screen -r <screen_pid> 打开即可</p>
+		<p>	常用screen参数:</p>
+		<p>	screen -S yourname -> 新建一个叫yourname的session</p>
+		<p>	screen -ls -> 列出当前所有的session</p>
+		<p>	screen -r yourname -> 回到yourname这个session</p>
+		<p>	screen -d yourname -> 远程detach某个session</p>
+		<p>	screen -d -r yourname -> 结束当前session并回到yourname这个session</p>
+		<p>	screen -D -r yourname-> 结束当前的session,并logout,再链接yourname这个session</p>
 	</p>
 </body>
 </html>
